@@ -1,0 +1,362 @@
+
+PLAY [openwisp2] *****************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [Stouts.postfix : include_tasks] ********************************************************************************************************************
+included: /root/.ansible/roles/Stouts.postfix/tasks/postfix.yml for openwisp2.example.com
+
+TASK [Stouts.postfix : Install requirements (Debian)] ****************************************************************************************************
+changed: [openwisp2.example.com] => (item=[u'postfix', u'ca-certificates', u'mailutils', u'libsasl2-modules'])
+
+TASK [Stouts.postfix : Install DKIM requirements (Debian)] ***********************************************************************************************
+skipping: [openwisp2.example.com] => (item=[]) 
+
+TASK [Stouts.postfix : Install postfix-pcre] *************************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Install requirements (RedHat)] ****************************************************************************************************
+skipping: [openwisp2.example.com] => (item=postfix) 
+skipping: [openwisp2.example.com] => (item=ca-certificates) 
+skipping: [openwisp2.example.com] => (item=mailx) 
+skipping: [openwisp2.example.com] => (item=libselinux-python) 
+
+TASK [Stouts.postfix : Install DKIM requirements (RedHat)] ***********************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : create self-signed SSL cert] ******************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : set permissions for self-signed SSL cert] *****************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : set permissions for self-signed SSL key] ******************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Create DKIM directories] **********************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Create DKIM directories] **********************************************************************************************************
+skipping: [openwisp2.example.com] => (item=openwisp2.example.com) 
+
+TASK [Stouts.postfix : Generate DKIM key] ****************************************************************************************************************
+skipping: [openwisp2.example.com] => (item=openwisp2.example.com) 
+
+TASK [Stouts.postfix : Change DKIM key permissions] ******************************************************************************************************
+skipping: [openwisp2.example.com] => (item=openwisp2.example.com) 
+
+TASK [Stouts.postfix : Configure opendkim pt. 1] *********************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure opendkim pt. 2] *********************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure opendkim pt. 3] *********************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure opendkim pt. 4] *********************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure opendkim pt. 5] *********************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Ensure /etc/postfix directory is owned by root user] ******************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure postfix pt. 1] **********************************************************************************************************
+changed: [openwisp2.example.com] => (item=main.cf)
+changed: [openwisp2.example.com] => (item=master.cf)
+
+TASK [Stouts.postfix : Configure postfix pt. 2] **********************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure postfix pt. 3] **********************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure postfix pt. 4] **********************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure postfix pt. 5] **********************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure postfix pt. 6] **********************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure postfix local user relay] ***********************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure postfix sender canonical maps] ******************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Configure SystemD] ****************************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Ensure Postfix service is enabled (systemd)] **************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [Stouts.postfix : Ensure Postfix is started] ********************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Set supervisor path (Debian)] *************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Set www user (Debian)] ********************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Set spatialite_path (Ubuntu >= 18.04 or Debian >= 10)] ************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Update APT package cache] *****************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install system packages] ******************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install redis 5 if available] *************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install redis 4 (fallback)] ***************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : set redis to listen on ipv4] **************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install geographic libraries] *************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install spatialite] ***********************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install mod-spatialite (may fail on older linux distros)] *********************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install acl if acting as non-root user] ***************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : ensure supervisor is started] *************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install python2 packages] *****************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install python3 packages] *****************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install ntp] ******************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Create default SSH key pair] **************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Get default private SSH key] **************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Get default public SSH key] ***************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Update pip & related tools] ***************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Remove jsonfield2] ************************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Set openwisp2_python_packages] ************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Set custom package list] ******************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Add network_topology to custom package list if set and enabled] ***************************************************************
+skipping: [openwisp2.example.com] => (item=False) 
+
+TASK [openwisp.openwisp2 : Add firmware_upgrader to custom package list if set and enabled] **************************************************************
+skipping: [openwisp2.example.com] => (item=False) 
+
+TASK [openwisp.openwisp2 : Install openwisp2 controller and its dependencies] ****************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Pin channels_redis to 2.4 for redis 4 compatibility] **************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install django-redis] *********************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install openwisp2 network topology and its dependencies] **********************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install openwisp firmware upgrader and its dependencies] **********************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install extra python packages] ************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install custom OpenWISP 2 Python packages] ************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install static minification dependencies] *************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install uwsgi] ****************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install gevent] ***************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install psycopg2] *************************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install MySQL-python] *********************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install raven (sentry client)] ************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : create /opt/openwisp2] ********************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : create "/opt/openwisp2/openwisp2"] ********************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : create "/opt/openwisp2/log"] **************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : manage.py] ********************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : celery.py] ********************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : __init__.py] ******************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : urls.py] **********************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : wsgi.py] **********************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : asgi.py] **********************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : upload generate_django_secret_key.py script] **********************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : generate new django SECRET_KEY] ***********************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : get django SECRET_KEY] ********************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : set permission to secret key file] ********************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : set secret_key fact] **********************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : settings.py] ******************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : storage.py] *******************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : routing.py] *******************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : start redis] ******************************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : migrate] **********************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : set permissions to sqlite db] *************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : set permissions to "/opt/openwisp2/static"] ***********************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : collectstatic] ****************************************************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : create load_initial_data.py script] *******************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : load initial data] ************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : uwsgi.ini] ********************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : supervisor uwsgi] *************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : supervisor daphne] ************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : supervisor celery] ************************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : supervisor celerybeat] ********************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Remove supervisor runworker.conf (obsolete)] **********************************************************************************
+ok: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : create "/opt/openwisp2/public_html"] ******************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : create "/opt/openwisp2/ssl"] **************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : create SSL cert if not exists yet] ********************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : disable default nginx configuration] ******************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : nginx site available] *********************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : nginx site enabled] ***********************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install topology update cron] *************************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install topology snapshot save cron] ******************************************************************************************
+skipping: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Install clearsessions cronjob] ************************************************************************************************
+changed: [openwisp2.example.com]
+
+TASK [openwisp.openwisp2 : Change superuser password hint] ***********************************************************************************************
+ok: [openwisp2.example.com] => {
+    "msg": "Change your admin password at https://openwisp2.example.com/admin/password_change/"
+}
+
+TASK [openwisp.openwisp2 : Update site object hint] ******************************************************************************************************
+ok: [openwisp2.example.com] => {
+    "msg": "Update the default site object at https://openwisp2.example.com/admin/sites/site/1/change/"
+}
+
+RUNNING HANDLER [Stouts.postfix : postfix restart] *******************************************************************************************************
+changed: [openwisp2.example.com]
+
+RUNNING HANDLER [Stouts.postfix : postfix send test mail] ************************************************************************************************
+skipping: [openwisp2.example.com]
+
+RUNNING HANDLER [openwisp.openwisp2 : reload systemd] ****************************************************************************************************
+skipping: [openwisp2.example.com]
+
+RUNNING HANDLER [openwisp.openwisp2 : reload supervisor] *************************************************************************************************
+changed: [openwisp2.example.com]
+
+RUNNING HANDLER [openwisp.openwisp2 : restart nginx] *****************************************************************************************************
+changed: [openwisp2.example.com]
+
+RUNNING HANDLER [openwisp.openwisp2 : start redis] *******************************************************************************************************
+ok: [openwisp2.example.com]
+
+PLAY RECAP ***********************************************************************************************************************************************
+openwisp2.example.com      : ok=76   changed=54   unreachable=0    failed=0    skipped=40   rescued=0    ignored=0   
+

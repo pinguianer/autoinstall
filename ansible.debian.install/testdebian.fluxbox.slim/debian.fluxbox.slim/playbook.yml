@@ -1,0 +1,9 @@
+---
+ - name: Playbook to install Apache
+   hosts: myserver
+   become: true
+   tasks: 
+    - name: Ansible apt install Apache
+      apt:
+        name: apache2
+        state: present
